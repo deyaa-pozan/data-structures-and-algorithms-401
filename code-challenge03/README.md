@@ -1,4 +1,4 @@
-#  insert shift an Array
+# Reverse an Array
 
 print out an array  insert new number in array middle.
 
