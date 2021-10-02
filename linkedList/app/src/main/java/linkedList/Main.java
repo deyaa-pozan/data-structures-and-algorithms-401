@@ -5,12 +5,12 @@ package linkedList;
 
 public class Main {
   public static void main(String[] args) {
-    Linkedlist link = new Linkedlist();
-    link.insert("abdelqader");
-    link.insert("marah");
-    link.insert("deyaa");
+    Linkedlist linklist = new Linkedlist();
+    linklist.insert("deyaa");
+    linklist.insert("aldeen");
+    linklist.insert("pozan");
 
-    System.out.println(link.toString());
-    System.out.println(link.includes("deyaa"));
+    System.out.println(linklist.toString());
+    System.out.println(linklist.includes("deyaa"));
   }
 }
