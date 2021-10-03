@@ -20,23 +20,88 @@ public void insert(String data){
   }
 }
 
-//    public void insert(String data){
-//        if(head == null){
-//            head= new Node(data);
-//            size++;
-//        }else {
-//            Node current = head ;
-//            while(current.getNext() != null){
-//                current = current.getNext();
-//            }
-//            Node node = new Node(data);
-//            current.setNext(node);
-//            size++;
-//        }
-//    }
+    public void append(String data){
+        if(head == null){
+            head= new Node(data);
+            size++;
+        }else {
+            Node current = head ;
+            while(current.getNext() != null){
+                current = current.getNext();
+            }
+            Node node = new Node(data);
+            current.setNext(node);
+            size++;
+        }
+    }
+
+  public void insertBefore(String value, String newVal) {
+    if (isListEmpty()) {
+      System.out.println("The value " + value + " is not exist!");
+      return;
+    }
+    if (this.head.getData().equals(value)) {
+      this.insert(newVal);
+      return;
+    }
+    Node currentNode = this.head;
+
+    while (currentNode.getNext() != null) {
+      if (currentNode.getNext().getData().equals(value)) {
+        addNodeHere(currentNode, newVal);
+        return;
+      }
+      currentNode = currentNode.getNext();
+    }
+    System.out.println("The value " + value + " is not exist!");
+  }
+
+  public int getSize() {
+    return size;
+  }
+  public boolean isListEmpty() {
+    return this.head == null;
+  }
+  public void insertAfter(String value, String newVal) {
+    if (isListEmpty()) {
+      System.out.println("The value " + value + " is not exist!");
+      return;
+    }
+    Node currentNode = this.head;
+    while (currentNode != null) {
+      if (currentNode.getData().equals(value)) {
+        addNodeHere(currentNode, newVal);
+        return;
+      }
+      currentNode = currentNode.getNext();
+    }
+
+    System.out.println("The value " + value + " is not exist!");
+
+  }
 
 
-@Override
+  public boolean includes(String data) {
+    Node current = head;
+    while (current!=null) {
+      if (data.equals(current.getData())) {
+        return true;
+      }
+      current = current.getNext();
+    }
+    return false;
+
+  }
+
+  private void addNodeHere(Node currentNode, String value) {
+    Node newNode = new Node(value);
+    newNode.setNext(currentNode.getNext());
+    currentNode.setNext(newNode);
+    size++;
+  }
+
+
+  @Override
   public String toString() {
   StringBuilder result;
     if (head == null) {
@@ -57,16 +122,6 @@ public void insert(String data){
   return result.toString();
 
 }
-  public boolean includes(String data) {
-    Node current = head;
-    while (current!=null) {
-      if (data.equals(current.getData())) {
-        return true;
-      }
-      current = current.getNext();
-    }
-    return false;
 
-  }
 
   }

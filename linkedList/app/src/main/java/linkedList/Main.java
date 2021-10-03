@@ -6,9 +6,11 @@ package linkedList;
 public class Main {
   public static void main(String[] args) {
     Linkedlist linklist = new Linkedlist();
-    linklist.insert("deyaa");
-    linklist.insert("aldeen");
-    linklist.insert("pozan");
+    linklist.append("deyaa");
+    linklist.append("najdat");
+    linklist.append("khear");
+    linklist.insertBefore("najdat","aldeen");
+    linklist.insertAfter("khear","pozan");
 
     System.out.println(linklist.toString());
 
