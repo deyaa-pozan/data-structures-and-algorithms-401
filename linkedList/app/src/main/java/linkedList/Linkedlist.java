@@ -13,15 +13,27 @@ public void insert(String data){
     head= new Node(data);
     size++;
   }else {
-   Node current = head ;
-   while(current.getNext() != null){
-     current = current.getNext();
-   }
     Node node = new Node(data);
-    current.setNext(node);
+    node.setNext(head);
+    head = node;
     size++;
   }
 }
+
+//    public void insert(String data){
+//        if(head == null){
+//            head= new Node(data);
+//            size++;
+//        }else {
+//            Node current = head ;
+//            while(current.getNext() != null){
+//                current = current.getNext();
+//            }
+//            Node node = new Node(data);
+//            current.setNext(node);
+//            size++;
+//        }
+//    }
 
 
 @Override

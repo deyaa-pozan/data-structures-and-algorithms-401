@@ -11,6 +11,7 @@ public class Main {
     linklist.insert("pozan");
 
     System.out.println(linklist.toString());
+
     System.out.println(linklist.includes("deyaa"));
   }
 }
