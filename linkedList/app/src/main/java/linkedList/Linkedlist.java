@@ -35,26 +35,7 @@ public void insert(String data){
         }
     }
 
-  public void insertBefore(String value, String newVal) {
-    if (isListEmpty()) {
-      System.out.println("The value " + value + " is not exist!");
-      return;
-    }
-    if (this.head.getData().equals(value)) {
-      this.insert(newVal);
-      return;
-    }
-    Node currentNode = this.head;
 
-    while (currentNode.getNext() != null) {
-      if (currentNode.getNext().getData().equals(value)) {
-        addNodeHere(currentNode, newVal);
-        return;
-      }
-      currentNode = currentNode.getNext();
-    }
-    System.out.println("The value " + value + " is not exist!");
-  }
 
   public int getSize() {
     return size;
@@ -80,7 +61,33 @@ public void insert(String data){
 
   }
 
+  public void insertBefore(String value, String newVal) {
+    if (isListEmpty()) {
+      System.out.println("The value " + value + " is not exist!");
+      return;
+    }
+    if (this.head.getData().equals(value)) {
+      this.insert(newVal);
+      return;
+    }
+    Node currentNode = this.head;
 
+    while (currentNode.getNext() != null) {
+      if (currentNode.getNext().getData().equals(value)) {
+        addNodeHere(currentNode, newVal);
+        return;
+      }
+      currentNode = currentNode.getNext();
+    }
+    System.out.println("The value " + value + " is not exist!");
+  }
+
+  private void addNodeHere(Node currentNode, String value) {
+    Node newNode = new Node(value);
+    newNode.setNext(currentNode.getNext());
+    currentNode.setNext(newNode);
+    size++;
+  }
   public boolean includes(String data) {
     Node current = head;
     while (current!=null) {
@@ -93,12 +100,7 @@ public void insert(String data){
 
   }
 
-  private void addNodeHere(Node currentNode, String value) {
-    Node newNode = new Node(value);
-    newNode.setNext(currentNode.getNext());
-    currentNode.setNext(newNode);
-    size++;
-  }
+
 
 
   @Override
@@ -122,6 +124,4 @@ public void insert(String data){
   return result.toString();
 
 }
-
-
   }
