@@ -30,3 +30,5 @@ Returns: a string representing all the values in the Linked List, formatted as:
 
 ![insert](linked-insert.jpg)
 
+![kthFromEnd](linked-list-kthFromEnd.jpg)
+

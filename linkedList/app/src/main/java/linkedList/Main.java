@@ -16,8 +16,9 @@ public class Main {
     linklist.append("aldeen");
     linklist.append("najdat");
     linklist.insertAfter("najdat","pozan");
+    System.out.println(linklist.toString());
 
-
+    System.out.println(linklist.kthFromEnd(0));
     //linklist.insertAfter("khear","pozan");
 
     System.out.println(linklist.toString());

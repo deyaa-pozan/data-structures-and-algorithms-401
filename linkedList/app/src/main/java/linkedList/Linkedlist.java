@@ -43,6 +43,7 @@ public void insert(String data){
   public boolean isListEmpty() {
     return this.head == null;
   }
+
   public void insertAfter(String value, String newVal) {
     if (isListEmpty()) {
       System.out.println("The value " + value + " is not exist!");
@@ -98,6 +99,24 @@ public void insert(String data){
     }
     return false;
 
+  }
+
+  public String kthFromEnd(int index){
+   Node current = head;
+      if (head == null) {
+          return "List is empty";
+      }
+   if (index>getSize()-1||index<0){
+     return "Exception";
+   }
+   int i = 0;
+   int indexFound = getSize()-index-1;
+   while (i<indexFound){
+     current = current.getNext();
+     i++;
+   }
+
+  return current.getData();
   }
 
 
