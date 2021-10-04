@@ -18,18 +18,65 @@ class AppTest {
 
   @Test
   void search() {
-    
     assertFalse(MyTestLink.includes("deyaa"));
 
   }
 @Test
 void print(){
-    MyTestLink.insert("deyaa");
-    MyTestLink.insert("aldeen");
-    MyTestLink.insert("pozan");
+    MyTestLink.append("deyaa");
+    MyTestLink.append("aldeen");
+    MyTestLink.append("pozan");
     assertEquals("HEAD -> deyaa -> aldeen -> pozan -> NULL", MyTestLink.toString());
-
   }
 
+    @Test public void insert(){
+        MyTestLink.insert("Boss");//the first element (head)
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("pozan");
+        String output = MyTestLink.toString();
+        String expected = "HEAD -> Boss -> deyaa -> aldeen -> pozan -> NULL";
+        assertEquals(expected,output);
+    }
+    @Test public void InsertBeforeTheMiddle(){
+        MyTestLink.insert("Boss");//the first element (head)
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("pozan");
+        MyTestLink.insertBefore("pozan","najdat");
+        String output = MyTestLink.toString();
+        String expected = "HEAD -> Boss -> deyaa -> aldeen -> najdat -> pozan -> NULL";
+        assertEquals(expected,output);
+    }
+    @Test public void InsertBeforeTheFirst(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("pozan");
+        MyTestLink.insertBefore("Boss","1");
+        String output = MyTestLink.toString();
+        String expected = "HEAD -> 1 -> Boss -> deyaa -> aldeen -> pozan -> NULL";
+        assertEquals(expected,output);
+    }
+    @Test public void InsertAfterTheMiddle(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("pozan");
+        MyTestLink.insertAfter("aldeen","najdat");
+        String output = MyTestLink.toString();
+        String expected = "HEAD -> Boss -> deyaa -> aldeen -> najdat -> pozan -> NULL";
+        assertEquals(expected,output);
+    }
+    @Test public void InsertAfterTheLast(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("najdat");
+        MyTestLink.insertAfter("najdat","pozan");
+        String output = MyTestLink.toString();
+        String expected = "HEAD -> Boss -> deyaa -> aldeen -> najdat -> pozan -> NULL";
+        assertEquals(expected,output);
+    }
 
 }

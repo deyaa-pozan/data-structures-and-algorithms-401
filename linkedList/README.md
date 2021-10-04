@@ -27,3 +27,6 @@ Returns: a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
 **Space -> O(1)**
 **Time -> O(n)**
+
+![insert](linked-insert.jpg)
+
