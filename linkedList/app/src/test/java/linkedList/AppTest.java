@@ -79,4 +79,58 @@ void print(){
         assertEquals(expected,output);
     }
 
+    @Test public void IndexGreaterThanTheLength(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("najdat");
+        MyTestLink.append("pozan");
+
+        String output = MyTestLink.kthFromEnd(6);
+        String expected = "Exception";
+        assertEquals(expected,output);
+    }
+
+    @Test public void IndexEqualsTheLength(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("najdat");
+        MyTestLink.append("pozan");
+
+        String output = MyTestLink.kthFromEnd(5);
+        String expected = "Exception";
+        assertEquals(expected,output);
+    }
+
+    @Test public void IndexIsNegativeNumber(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("najdat");
+        MyTestLink.append("pozan");
+
+        String output = MyTestLink.kthFromEnd(-1);
+        String expected = "Exception";
+        assertEquals(expected,output);
+    }
+    @Test public void  LinkedListLengthEqualsOne(){
+        MyTestLink.insert("Boss");
+
+        String output = MyTestLink.kthFromEnd(0);
+        String expected = "Boss";
+        assertEquals(expected,output);
+    }
+    @Test public void HappyPath(){
+        MyTestLink.insert("Boss");
+        MyTestLink.append("deyaa");
+        MyTestLink.append("aldeen");
+        MyTestLink.append("najdat");
+        MyTestLink.append("pozan");
+
+        String output = MyTestLink.kthFromEnd(2);
+        String expected = "aldeen";
+        assertEquals(expected,output);
+    }
+
 }
