@@ -133,4 +133,26 @@ void print(){
         assertEquals(expected,output);
     }
 
+    @Test public void TestZipLists(){
+        Linkedlist MyTestLink2 = new Linkedlist();
+        MyTestLink2.append("2");
+        MyTestLink2.append("4");
+
+        MyTestLink.insert("1");
+        MyTestLink.append("3");
+        MyTestLink.append("5");
+        String output = MyTestLink.zipLists(MyTestLink2).toString();
+        String expected = "HEAD -> 1 -> 2 -> 3 -> 4 -> 5 -> NULL";
+        assertEquals(expected,output);
+    }
+
+    @Test public void TestZipListsIsEmpty(){
+        Linkedlist MyTestLink2 = new Linkedlist();
+        MyTestLink.insert("1");
+        MyTestLink.append("3");
+        MyTestLink.append("5");
+        String output = MyTestLink.zipLists(MyTestLink2).toString();
+        String expected = "HEAD -> 1 -> 3 -> 5 -> NULL";
+        assertEquals(expected,output);
+    }
 }

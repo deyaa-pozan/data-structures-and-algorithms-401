@@ -32,3 +32,5 @@ Returns: a string representing all the values in the Linked List, formatted as:
 
 ![kthFromEnd](linked-list-kthFromEnd.jpg)
 
+![linked-list-zip](linked-list-zip.jpg)
+

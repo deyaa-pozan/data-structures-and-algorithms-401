@@ -119,6 +119,27 @@ public void insert(String data){
   return current.getData();
   }
 
+  public Linkedlist zipLists(Linkedlist list2){
+      Node current1 ;
+      Node current2 ;
+      Linkedlist thisLinkedlist ;
+      if(this.getSize() >= list2.getSize()){
+           current1 = this.head;
+           current2 = list2.head;
+           thisLinkedlist = this;
+
+      } else{
+          thisLinkedlist =list2;
+          current1 = list2.head;
+          current2 = this.head;
+      }
+      while (current2!=null&&current1.getNext()!=null){
+          thisLinkedlist.insertAfter(current1.getData(),current2.getData());
+          current2=current2.getNext();
+          current1=current1.getNext().getNext();
+      }
+    return thisLinkedlist;
+  }
 
 
 
