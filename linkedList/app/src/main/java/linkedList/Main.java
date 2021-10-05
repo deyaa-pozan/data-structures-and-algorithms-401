@@ -6,23 +6,22 @@ package linkedList;
 public class Main {
   public static void main(String[] args) {
     Linkedlist linklist = new Linkedlist();
-//    linklist.append("deyaa");
-//    linklist.append("najdat");
-//    linklist.append("khear");
-//    linklist.insertBefore("najdat","aldeen");
+    Linkedlist linklist2 = new Linkedlist();
+    linklist2.append("🧑🧒");
+    linklist2.append("👔👗");
 
-    linklist.insert("Boss");
-    linklist.append("deyaa");
-    linklist.append("aldeen");
-    linklist.append("najdat");
-    linklist.insertAfter("najdat","pozan");
-    System.out.println(linklist.toString());
+    linklist.insert("🧑");
+    linklist.append("💑");
+    linklist.append("👶");
 
-    System.out.println(linklist.kthFromEnd(0));
+
+//    System.out.println(linklist.toString());
+//
+//    System.out.println(linklist.kthFromEnd(0));
     //linklist.insertAfter("khear","pozan");
 
-    System.out.println(linklist.toString());
-
-    System.out.println(linklist.includes("deyaa"));
+//    System.out.println(linklist.toString());
+      System.out.println(linklist.zipLists(linklist2));
+//    System.out.println(linklist.includes("deyaa"));
   }
 }
