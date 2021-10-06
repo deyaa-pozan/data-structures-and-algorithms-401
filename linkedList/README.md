@@ -34,3 +34,5 @@ Returns: a string representing all the values in the Linked List, formatted as:
 
 ![linked-list-zip](linked-list-zip.jpg)
 
+![list-revers](list-revers.jpg)
+
