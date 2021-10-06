@@ -3,13 +3,16 @@
  */
 package linkedList;
 
+import java.util.ArrayList;
+
 public class Linkedlist {
 
    Node head;
   private int size;
 
+
 public void insert(String data){
-  if(head == null){
+  if(isListEmpty()){
     head= new Node(data);
     size++;
   }else {
@@ -103,9 +106,8 @@ public void insert(String data){
 
   public String kthFromEnd(int index){
    Node current = head;
-      if (head == null) {
-          return "List is empty";
-      }
+      if (isListEmpty()) {
+          return "List is empty";}
    if (index>getSize()-1||index<0){
      return "Exception";
    }
@@ -128,7 +130,7 @@ public void insert(String data){
            current2 = list2.head;
            thisLinkedlist = this;
 
-      } else{
+      }else{
           thisLinkedlist =list2;
           current1 = list2.head;
           current2 = this.head;
@@ -141,9 +143,45 @@ public void insert(String data){
     return thisLinkedlist;
   }
 
+    public void reverse(){
+        if (isListEmpty()) {
+            System.out.println("List is empty");
+        }
+    Node current = this.head;
+    Node next = null ;
+    Node pre = null;
+    while (current!=null){
+        next = current.getNext();
+        current.setNext(pre);
+        pre = current;
+        current= next;
+    }
+    this.head = pre;
+    }
+
+    public boolean palindrome() {
+    if (isListEmpty()){
+        System.out.println("List is empty");
+        return true ;
+    }
+        ArrayList<String> arr = new ArrayList<>();
+        Node current = this.head;
+        while (current!=null){
+            arr.add(current.getData());
+            current = current.getNext();
+        }
+        for (int i = 0; i < arr.size()/2; i++) {
+            if (arr.get(i)!=arr.get(arr.size()-i-1)){
+                return false;
+            }
+
+        }
+
+        return true;
+    }
 
 
-  @Override
+        @Override
   public String toString() {
   StringBuilder result;
     if (head == null) {
@@ -162,6 +200,5 @@ public void insert(String data){
       result.append("NULL");
     }
   return result.toString();
-
 }
   }

@@ -7,12 +7,21 @@ public class Main {
   public static void main(String[] args) {
     Linkedlist linklist = new Linkedlist();
     Linkedlist linklist2 = new Linkedlist();
-    linklist2.append("🧑🧒");
-    linklist2.append("👔👗");
+//    linklist2.append("🧑🧒");
+//    linklist2.append("👔👗");
 
-    linklist.insert("🧑");
-    linklist.append("💑");
-    linklist.append("👶");
+//    linklist.insert("a");
+//    linklist.append("b");
+//    linklist.append("c");
+//    linklist.append("b");
+//    linklist.append("a");
+    System.out.println(linklist);
+
+    System.out.println(linklist.palindrome());
+
+//    linklist.append("👔👗");
+//
+//    linklist.append("👶");
 
 
 //    System.out.println(linklist.toString());
@@ -21,7 +30,12 @@ public class Main {
     //linklist.insertAfter("khear","pozan");
 
 //    System.out.println(linklist.toString());
-      System.out.println(linklist.zipLists(linklist2));
+//    System.out.println(linklist.zipLists(linklist2));
+
+//    linklist.reverse();
+//    System.out.println(linklist);
+//    System.out.println(linklist);
+
 //    System.out.println(linklist.includes("deyaa"));
   }
 }
