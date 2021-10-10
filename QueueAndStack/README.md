@@ -36,3 +36,5 @@
 * `peek()`  : Returns Value of the node located at the front of the queue.
 
 * `isEmpty()` : Boolean indicating whether or not the queue is empty.
+
+![queue](queue-pseudo.jpg)

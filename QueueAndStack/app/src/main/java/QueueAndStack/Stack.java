@@ -2,10 +2,14 @@ package QueueAndStack;
 
 public class Stack <T> {
     Node top = null;
-    int size =0;
+    private int size =0;
 
     public boolean isEmpty(){
         return size == 0;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void push(T value){
