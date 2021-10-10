@@ -19,6 +19,30 @@ public class Queue <T> {
 
     }
 
+    public Node getFront() {
+        return front;
+    }
+
+    public void setFront(Node front) {
+        this.front = front;
+    }
+
+    public Node getRear() {
+        return rear;
+    }
+
+    public void setRear(Node rear) {
+        this.rear = rear;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public T dequeue(){
         if(isEmpty()){
             return null;
