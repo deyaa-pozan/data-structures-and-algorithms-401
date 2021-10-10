@@ -12,14 +12,12 @@ public class AppTest {
 
     @Test
     public void pushToStack() {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(3);
-        int size = stack.size;
+        Stack<String> stack = new Stack<>();
+        stack.push("3");
+        int size = stack.getSize();
         int expectedSize = 1;
         Assertions.assertEquals(expectedSize,size);
-        String output = stack.toString();
-        String expectedOutput = "3";
-        Assertions.assertEquals(expectedOutput,output);
+
     }
     @Test public void pushMultiTOStack() {
         Stack<Integer> stack = new Stack<Integer>();
@@ -27,7 +25,7 @@ public class AppTest {
         stack.push(2);
         stack.push(3);
         String output = stack.toString();
-        String expectedOutput = "1\n2\n3\nnull";
+        String expectedOutput = "3\n2\n1\nnull";
         Assertions.assertEquals(expectedOutput,output);
     }
     @Test
@@ -37,7 +35,7 @@ public class AppTest {
         stack.push(9);
         stack.push(1);
         int value = stack.pop();
-        int size = stack.size;
+        int size = stack.getSize();
         int expectedSize = 2;
         Assertions.assertEquals(expectedSize,size);
         int expectedOutput = 1;
@@ -51,7 +49,7 @@ public class AppTest {
         stack.pop();
         stack.pop();
         stack.pop();
-        int size = stack.size;
+        int size = stack.getSize();
         int expectedSize = 0;
         Assertions.assertEquals(expectedSize,size);
         String output = stack.toString();
@@ -64,7 +62,7 @@ public class AppTest {
         stack.push(8);
         stack.push(1);
         int peeked = stack.peek();
-        int size = stack.size;
+        int size = stack.getSize();
         int expectedSize = 3;
         Assertions.assertEquals(expectedSize,size);
         int expectedOutput = 1;
@@ -72,7 +70,7 @@ public class AppTest {
     }
     @Test public void instantiateEmptyStack() {
         Stack<Integer> stack = new Stack<Integer>();
-        int size = stack.size;
+        int size = stack.getSize();
         int expectedSize = 0;
         Assertions.assertEquals(expectedSize,size);
         String output = stack.toString();
@@ -146,13 +144,11 @@ public class AppTest {
     }
 
     @Test public void instantiateEmptyQueue() {
-        Queue<Integer> queue = new Queue<Integer>();
+        Queue<String> queue = new Queue<String>();
         int size = queue.size;
         int expectedSize = 0;
         Assertions.assertEquals(expectedSize,size);
-        String output = queue.toString();
-        String expectedOutput = "null";
-        Assertions.assertEquals(expectedOutput,output);
+
     }
 
     @Test public void callingDequeueOrPeekEmptyQueue() {
@@ -160,4 +156,46 @@ public class AppTest {
         Assertions.assertNull(queue.peek());
         Assertions.assertNull(queue.dequeue());
     }
+    @Test public void enqueueIntoQueuePseudo() {
+        QueuePseudo<String> queue = new QueuePseudo<>();
+        queue.enqueue("deyaa");
+        int size = queue.getSize();
+        int expectedSize = 1;
+        Assertions.assertEquals(expectedSize,size);
+    }
+
+    @Test public void dequeueQueuePseudo() {
+        QueuePseudo<String> queue = new QueuePseudo<>();
+        queue.enqueue("DEYAA");
+        queue.enqueue("ABED");
+        queue.enqueue("AMMAR");
+
+        String value = queue.dequeue();
+        String expectedValue = "DEYAA";
+        int size = queue.getSize();
+        int expectedSize = 2;
+        Assertions.assertEquals(expectedSize,size);
+        Assertions.assertEquals(expectedValue,value);
+    }
+
+    @Test public void emptyQueuePseudoAfterDequeues() {
+        QueuePseudo<String> queue = new QueuePseudo<>();
+        queue.enqueue("DEYAA");
+        queue.enqueue("ABED");
+        queue.enqueue("AMMAR");
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        int size = queue.getSize();
+        int expectedSize = 0;
+        Assertions.assertEquals(expectedSize,size);
+    }
+
+
+    @Test public void dequeueOnEmptyQueuePseudo() {
+        QueuePseudo<String> queue = new QueuePseudo<>();
+        Assertions.assertNull(queue.dequeue());
+    }
+
 }
+
