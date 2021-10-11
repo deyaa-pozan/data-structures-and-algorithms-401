@@ -3,10 +3,9 @@
  */
 package QueueAndStack;
 
+import QueueAndStack.Animal.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-
 
 public class AppTest {
 
@@ -197,5 +196,66 @@ public class AppTest {
         Assertions.assertNull(queue.dequeue());
     }
 
+    @Test public void testCreateEmptyAnimalShelter() {
+        AnimalShelter animals = new AnimalShelter();
+        Assertions.assertEquals("AnimalShelter{animalQueue=front rear}",animals.toString());
+    }
+    @Test public void testEnqueueAnimalsToTheShelter() {
+        AnimalShelter animals = new AnimalShelter();
+        Animal animal1 = new Dog("dog1");
+        Animal animal2 = new Dog("dog2");
+        Animal animal3 = new Cat("cat1");
+        Animal animal4 = new Cat("cat2");
+        animals.enqueue(animal1);
+        animals.enqueue(animal2);
+        animals.enqueue(animal3);
+        animals.enqueue(animal4);
+        String expected ="AnimalShelter{animalQueue=front Animal{name='dog1'} -- Animal{name='dog2'} -- Animal{name='cat1'} -- Animal{name='cat2'} -- rear}";
+        Assertions.assertEquals(expected,animals.toString());
+    }
+    @Test public void testDequeuePrefCat() {
+        AnimalShelter animals = new AnimalShelter();
+        Animal animal1 = new Dog("dog1");
+        Animal animal2 = new Dog("dog2");
+        Animal animal3 = new Cat("cat1");
+        Animal animal4 = new Cat("cat2");
+        animals.enqueue(animal1);
+        animals.enqueue(animal2);
+        animals.enqueue(animal3);
+        animals.enqueue(animal4);
+        Animal value = animals.dequeue("dog");
+        String expected ="dog1";
+        Assertions.assertEquals(expected,value.getName());
+
+    }
+
+    @Test public void testDequeuePrefCatNotFound() {
+        AnimalShelter animals = new AnimalShelter();
+
+        Animal animal1 = new Dog("dog1");
+        Animal animal2 = new Dog("dog2");
+        animals.enqueue(animal1);
+        animals.enqueue(animal2);
+        Animal value = animals.dequeue("cat");
+        Assertions.assertNull(value);
+    }
+    @Test public void testDequeuePrefAnyThingAnotherCatOrDog() {
+        AnimalShelter animals = new AnimalShelter();
+
+        Animal animal1 = new Dog("dog1");
+        Animal animal2 = new Dog("dog2");
+        Animal animal3 = new Cat("cat1");
+        Animal animal4 = new Cat("cat2");
+        Animal animal5 = new AnotherAnimal("lion");
+        animals.enqueue(animal1);
+        animals.enqueue(animal2);
+        animals.enqueue(animal3);
+        animals.enqueue(animal4);
+        animals.enqueue(animal5);
+        Animal value = animals.dequeue("cute animal");
+        String expected ="AnimalShelter{animalQueue=front Animal{name='dog1'} -- Animal{name='dog2'} -- Animal{name='cat1'} -- Animal{name='cat2'} -- rear}";
+        Assertions.assertEquals(expected,animals.toString());
+        Assertions.assertEquals("lion",value.getName());
+    }
 }
 
