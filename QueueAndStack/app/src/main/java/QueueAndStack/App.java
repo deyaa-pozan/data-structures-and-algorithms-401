@@ -3,8 +3,6 @@
  */
 package QueueAndStack;
 
-import QueueAndStack.Animal.*;
-
 public class App {
 
     public static void main(String[] args) {
@@ -43,27 +41,37 @@ public class App {
 //        stack.push("3");
 //
 //        System.out.println(stack);
-        AnimalShelter animals = new AnimalShelter();
-        Animal animal1 = new Dog("dog1");
-        Animal animal2 = new Dog("dog2");
-        Animal animal3 = new Cat("cat1");
-        Animal animal4 = new Cat("cat2");
-        // Stretch Goal
-        Animal animal5 = new AnotherAnimal("lion");
-        animals.enqueue(animal1);
-        animals.enqueue(animal2);
-        animals.enqueue(animal3);
-        animals.enqueue(animal4);
-        animals.enqueue(animal5);
+//        AnimalShelter animals = new AnimalShelter();
+//        Animal animal1 = new Dog("dog1");
+//        Animal animal2 = new Dog("dog2");
+//        Animal animal3 = new Cat("cat1");
+//        Animal animal4 = new Cat("cat2");
+//        // Stretch Goal
+//        Animal animal5 = new AnotherAnimal("lion");
+//        animals.enqueue(animal1);
+//        animals.enqueue(animal2);
+//        animals.enqueue(animal3);
+//        animals.enqueue(animal4);
+//        animals.enqueue(animal5);
+//
+//        System.out.println(animals);
+//
+//        System.out.println(animals.dequeue("dog"));
+//        System.out.println(animals.dequeue("cat"));
+//        System.out.println(animals.dequeue("cute animal"));
+//
+//
+//
+//        System.out.println(animals);
 
-        System.out.println(animals);
-
-        System.out.println(animals.dequeue("dog"));
-        System.out.println(animals.dequeue("cat"));
-        System.out.println(animals.dequeue("cute animal"));
+        String str = "{(})";
 
 
+            System.out.println(Brackets.ValidateBrackets(str));
 
-        System.out.println(animals);
+
+
+
+
     }
 }
