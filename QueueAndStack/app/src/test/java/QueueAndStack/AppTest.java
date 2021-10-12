@@ -196,11 +196,11 @@ public class AppTest {
         Assertions.assertNull(queue.dequeue());
     }
 
-    @Test public void testCreateEmptyAnimalShelter() {
+    @Test public void createEmptyAnimalShelter() {
         AnimalShelter animals = new AnimalShelter();
         Assertions.assertEquals("AnimalShelter{animalQueue=front rear}",animals.toString());
     }
-    @Test public void testEnqueueAnimalsToTheShelter() {
+    @Test public void enqueueAnimalsToTheShelter() {
         AnimalShelter animals = new AnimalShelter();
         Animal animal1 = new Dog("dog1");
         Animal animal2 = new Dog("dog2");
@@ -213,7 +213,7 @@ public class AppTest {
         String expected ="AnimalShelter{animalQueue=front Animal{name='dog1'} -- Animal{name='dog2'} -- Animal{name='cat1'} -- Animal{name='cat2'} -- rear}";
         Assertions.assertEquals(expected,animals.toString());
     }
-    @Test public void testDequeuePrefCat() {
+    @Test public void dequeuePrefCat() {
         AnimalShelter animals = new AnimalShelter();
         Animal animal1 = new Dog("dog1");
         Animal animal2 = new Dog("dog2");
@@ -229,7 +229,7 @@ public class AppTest {
 
     }
 
-    @Test public void testDequeuePrefCatNotFound() {
+    @Test public void dequeuePrefCatNotFound() {
         AnimalShelter animals = new AnimalShelter();
 
         Animal animal1 = new Dog("dog1");
@@ -256,6 +256,32 @@ public class AppTest {
         String expected ="AnimalShelter{animalQueue=front Animal{name='dog1'} -- Animal{name='dog2'} -- Animal{name='cat1'} -- Animal{name='cat2'} -- rear}";
         Assertions.assertEquals(expected,animals.toString());
         Assertions.assertEquals("lion",value.getName());
+    }
+
+    @Test public void bracketsOverlapping(){
+        String str = "{(})";
+        boolean bool = Brackets.ValidateBrackets(str);
+        Assertions.assertFalse(bool);
+    }
+    @Test public void wordsInBrackets() {
+        String str = "()[[Extra Characters]]";
+        boolean bool = Brackets.ValidateBrackets(str);
+        Assertions.assertTrue(bool);
+    }
+    @Test public void bracketIncrementAtTheEnd() {
+        String str = "[{}]]";
+        boolean bool = Brackets.ValidateBrackets(str);
+        Assertions.assertFalse(bool);
+    }
+    @Test public void bracketIncrementAtBeginning() {
+        String str = "[({})";
+        boolean bool = Brackets.ValidateBrackets(str);
+        Assertions.assertFalse(bool);
+    }
+    @Test public void emptyString() {
+        String str = "";
+        boolean bool = Brackets.ValidateBrackets(str);
+        Assertions.assertTrue(bool);
     }
 }
 
