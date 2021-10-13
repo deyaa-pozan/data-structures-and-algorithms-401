@@ -18,6 +18,8 @@ public class App {
 //
 //        Queue<Integer> queue = new Queue<>();
 //        queue.enqueue(10);
+//        queue.enqueue(20);
+
 //        queue.enqueue(9);
 //        queue.enqueue(5);
 //        queue.enqueue(6);
@@ -64,10 +66,18 @@ public class App {
 //
 //        System.out.println(animals);
 
-        String str = "{(})";
 
+//
+//        String str = "{(})";
+//            System.out.println(Brackets.ValidateBrackets(str));
 
-            System.out.println(Brackets.ValidateBrackets(str));
+        Stack<Integer> s = new Stack<Integer>();
+        s.push(1000);
+        s.push(10);
+        s.push(600);
+        s.push(1000);
+        s.push(30);
+        System.out.println(s.getMax());
 
 
 

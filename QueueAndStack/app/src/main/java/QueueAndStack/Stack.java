@@ -12,6 +12,27 @@ public class Stack <T> {
         return size;
     }
 
+
+    public T getMax(){
+        if (isEmpty()){
+            System.out.println("List is empty");
+            return null;
+        }
+        Node current= top;
+        Node max= top;
+
+       while (current.getNext()!=null){
+         if (Integer.parseInt(current.getValue()+"") < Integer.parseInt(current.getNext().getValue()+"")){
+           max= current.getNext();
+            }
+         current= current.getNext();
+       }
+     return (T) max.getValue();
+    }
+
+
+
+
     public void push(T value){
         Node newNode = new Node(value);
         newNode.next = top;

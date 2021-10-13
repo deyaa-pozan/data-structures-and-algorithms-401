@@ -19,7 +19,7 @@
 
 ###  Methods in Stack
 
-* ` push(int value)` : To add new node in the stack.
+* `push(int value)` : To add new node in the stack.
 
 * `pop()`: Removes the node from the top of the stack.
 
@@ -113,3 +113,5 @@ Need add the following method:
 ## Solution
 
 ![bracket](bracket.jpg)
+
+![max](maxNumber.jpg)
