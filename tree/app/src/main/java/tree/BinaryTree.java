@@ -49,6 +49,20 @@ public class BinaryTree<T> {
         return tree;
     }
 
+    public  int treeMax(){
+        if (isEmpty()) {
+            return 0;
+        }
+        int max = 0;
+        ArrayList<T> allNodes = preOrder(root);
+        for (int i = 0; i < allNodes.size(); i++) {
+            if(Integer.parseInt(allNodes.get(i)+"") > max){
+                max =Integer.parseInt(allNodes.get(i)+"");
+            }
+        }
+        return max;
+    }
+
     @Override
     public String toString() {
         return "BinaryTree{" +
