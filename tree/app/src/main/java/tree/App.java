@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
 
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-
+        
         tree.add(6);
         tree.add(3);
         tree.add(5);
@@ -18,6 +18,7 @@ public class App {
         System.out.println(tree.postOrder(tree.root));
         System.out.println(tree);
         System.out.println(tree.contains(6));
+        System.out.println(tree.treeMax());
 
 
     }
