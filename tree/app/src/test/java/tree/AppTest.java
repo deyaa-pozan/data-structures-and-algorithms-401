@@ -68,4 +68,13 @@ class AppTest {
         ArrayList<Integer> expected=tree.postOrder(tree.root);
         assertArrayEquals(Arrays.asList(1,5,3).toArray(), expected.toArray());
     }
+    @Test
+    public void getMaxElement(){
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        tree.add(3);
+        tree.add(1);
+        tree.add(5);
+        int expected=tree.treeMax();
+        assertEquals(5, expected);
+    }
 }
