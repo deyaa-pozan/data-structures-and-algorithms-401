@@ -2,6 +2,8 @@ package tree;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+
 
 public class BinaryTree<T> {
     Node root=null;
@@ -11,6 +13,40 @@ public class BinaryTree<T> {
         return root == null;
     }
 
+    public void add(T value) {
+        Node node = new Node(value);
+        try{
+            if(!isEmpty()){
+                Node current = root;
+                values++;
+                while(current != null){
+                    if((int) value > (int) current.value  ){
+                        if(current.right == null){
+                            current.right = node;
+                            return;
+                        }
+                        current = current.right;
+
+                    }
+                    else{
+                        if(current.left == null){
+                            current.left = node;
+                            return;
+                        }
+                        current = current.left;
+                    }
+                }
+            }else {
+                values++;
+                root = node;
+            }
+        }
+        catch (ClassCastException e){
+            System.out.println(e.getMessage());
+        }
+
+
+    }
 
     public ArrayList<T> preOrder(Node root){
         ArrayList <T> tree = new ArrayList<>();
@@ -61,6 +97,29 @@ public class BinaryTree<T> {
             }
         }
         return max;
+    }
+
+    public ArrayList<T> breadthFirstSearch(){
+        ArrayList <T> tree = new ArrayList<>();
+        LinkedList<Node> list = new LinkedList<>();
+        Node current = root;
+        if(!isEmpty()){
+            list.add(current);
+            for (int i = 0; i <values ; i++) {
+                current = list.get(i);
+                if(current.left != null){
+                    list.add(current.left);
+                }
+                if(current.right != null){
+                    list.add(current.right);
+                }
+            }
+        }
+
+        for (int j = 0; j < list.size(); j++) {
+            tree.add((T)list.get(j).value);
+        }
+        return tree;
     }
 
     @Override
