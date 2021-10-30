@@ -1,3 +1,4 @@
+
 # Binary Tree / Binary Search Tree
 <!-- Short summary or background information -->
 - Binary Tree: A rooted binary tree, whose internal nodes each store a key; Each having two distinguished sub-trees (left and right)
@@ -80,4 +81,8 @@ Need add the following method:
 
 ## Solution
 
-![](ch17.jpg)s
+![](ch17.jpg)
+
+![ch19](ch19.jpg)
+
+![ch18](ch18.jpg)
