@@ -3,26 +3,53 @@
  */
 package tree;
 
+//import tree.kary.FizzBuzzTree;
+
+import java.util.Random;
+
 public class App {
     public static void main(String[] args) {
 
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-        
-        tree.add(10);
-        tree.add(5);
-        tree.add(2);
-        tree.add(15);
-        tree.add(12);
-        tree.add(20);
+//        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+//
+//        tree.add(10);
+//        tree.add(5);
+//        tree.add(2);
+//        tree.add(15);
+//        tree.add(15);
+//        tree.add(12);
+//        tree.add(20);
 
 //        System.out.println(tree.inOrder(tree.root));
 //        System.out.println(tree.postOrder(tree.root));
 //        System.out.println(tree);
 //        System.out.println(tree.contains(6));
 //        System.out.println(tree.treeMax());
-          System.out.println(tree.breadthFirstSearch());
+//          System.out.println(tree.breadthFirstSearch());
 //        System.out.println(tree.preOrder(tree.root));
+//        System.out.println(tree.oddSum());
 
+//        KaryTree<Integer> karyTree = new KaryTree<>(4);
+//        karyTree.add(1);
+//        karyTree.add(2);
+//        karyTree.add(3);
+//        karyTree.add(4);
+//        karyTree.add(5);
+//        karyTree.add(15);
+//        karyTree.add(7);
+//        System.out.println(karyTree.breadthFirstSearch());
+//        KaryTree<String> fizBuzzTree = BinarySearchTree.fizzBuzzTree(karyTree);
+//
+//        System.out.println(fizBuzzTree.breadthFirstSearch());
+        Random random = new Random();
+
+        String generatedString = random.ints(48, 122 + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(20)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        System.out.println(generatedString);
+    }
 
     }
-}
+
