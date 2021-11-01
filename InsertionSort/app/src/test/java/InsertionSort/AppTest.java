@@ -7,7 +7,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
+    InsertionSort sort = new InsertionSort();
+    @Test
+    public void testInsertionSortWithNormalArray(){
+        int[] array = {8,4,23,42,16,15};
+        int[] outputArray = sort.insertionSort(array);
+        int[] expectedOutput = {4,8,15,16,23,42};
+        assertArrayEquals(expectedOutput,outputArray);
     }
+
+    @Test
+    public void testInsertionSortWithEmptyArray(){
+        int[] array = {};
+        int[] outputArray = sort.insertionSort(array);
+        int[] expectedOutput = {};
+        assertArrayEquals(expectedOutput,outputArray);
+    }
+
 }
