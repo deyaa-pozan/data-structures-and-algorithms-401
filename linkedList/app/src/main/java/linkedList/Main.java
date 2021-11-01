@@ -6,18 +6,18 @@ package linkedList;
 public class Main {
   public static void main(String[] args) {
     Linkedlist linklist = new Linkedlist();
-    Linkedlist linklist2 = new Linkedlist();
+    // Linkedlist linklist2 = new Linkedlist();
 //    linklist2.append("🧑🧒");
 //    linklist2.append("👔👗");
 
-//    linklist.insert("a");
-//    linklist.append("b");
-//    linklist.append("c");
-//    linklist.append("b");
-//    linklist.append("a");
+   linklist.insert(1);
+   linklist.append(5);
+   linklist.append(4);
+   linklist.append(2);
+   linklist.append(8);
     System.out.println(linklist);
 
-    System.out.println(linklist.palindrome());
+    // System.out.println(linklist.palindrome());
 
 //    linklist.append("👔👗");
 //
