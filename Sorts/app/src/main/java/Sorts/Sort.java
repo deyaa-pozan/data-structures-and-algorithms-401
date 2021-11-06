@@ -32,7 +32,6 @@ public class Sort {
     }
 
     private static int[] merge(int[] left, int[] right, int[] arr) {
-
         int i=0;
         int j=0;
         int k=0;
@@ -63,4 +62,37 @@ public class Sort {
         }
         return arr;
     }
+        public int[] quickSort(int[] arr){
+            int left = 0;
+            int right = arr.length -1;
+            return quickSort(left, right, arr);
+        }
+        private int[] quickSort(int left, int right, int[] arr){
+    
+            if(left < right ){
+                int position = partition(arr, left,right);
+                quickSort(left, position -1,arr );
+                quickSort(position +1, right ,arr);
+    
+            }
+            return arr;
+        }
+        private int partition(int[] arr, int left, int right) {
+            int p = arr[right];
+            int low = left-1 ;
+            int i;
+            for( i = left; i< right; i++){
+                if(arr[i] <= p){
+                    low++;
+                    swap(arr, low, i);
+                }
+            }
+            swap(arr, low+1, right);
+            return low+1;
+        }
+        private void swap(int[] arr, int idx1, int idx2) {
+            int temp = arr[idx1];
+            arr[idx1]  = arr[idx2];
+            arr[idx2] = temp;
+        }
 }

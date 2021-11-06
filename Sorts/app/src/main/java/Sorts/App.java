@@ -12,10 +12,7 @@ public class App {
         // System.out.println(Arrays.toString(array));
         // System.out.println(Arrays.toString(sort.insertionSort(array)));
         System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(sort.mergeSort(array)));
-
-
-        
-
+        // System.out.println(Arrays.toString(sort.mergeSort(array)));
+        System.out.println(Arrays.toString(sort.quickSort(array)));
     }
 }
