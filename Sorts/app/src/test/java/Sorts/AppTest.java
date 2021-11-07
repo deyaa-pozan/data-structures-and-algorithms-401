@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest {
     Sort sort = new Sort();
     @Test
-    public void testInsertionSortWithNormalArray(){
+    public void insertionSortWithNormalArray(){
         int[] array = {8,4,23,42,16,15};
         int[] outputArray = sort.insertionSort(array);
         int[] expectedOutput = {4,8,15,16,23,42};
@@ -17,9 +17,25 @@ class AppTest {
     }
 
     @Test
-    public void testInsertionSortWithEmptyArray(){
+    public void InsertionSortWithEmptyArray(){
         int[] array = {};
         int[] outputArray = sort.insertionSort(array);
+        int[] expectedOutput = {};
+        assertArrayEquals(expectedOutput,outputArray);
+    }
+
+    @Test
+    public void quickSortWithNormalArray(){
+        int[] array = {8,4,23,42,16,15};
+        int[] outputArray = sort.quickSort(array);
+        int[] expectedOutput = {4,8,15,16,23,42};
+        assertArrayEquals(expectedOutput,outputArray);
+    }
+
+    @Test
+    public void quickSortWithEmptyArray(){
+        int[] array = {};
+        int[] outputArray = sort.quickSort(array);
         int[] expectedOutput = {};
         assertArrayEquals(expectedOutput,outputArray);
     }
