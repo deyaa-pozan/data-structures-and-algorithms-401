@@ -57,4 +57,24 @@ class AppTest {
         assertEquals(300, output1);
 
     }
+
+    @Test public void testRepeatedWordIfNotExist() {
+        HashTable<String, Integer> test = new HashTable<>();
+        String str = "hello world";
+        String expected = test.repeatedWord(str);
+        assertEquals(expected, "not exist repeated word");
+    }
+    @Test public void testRepeatedWordIfStringIsEmpty() {
+        HashTable<String, Integer> test = new HashTable<>();
+        String str = "";
+        String expected = test.repeatedWord(str);
+        assertEquals(expected, "not exist repeated word");
+    }
+
+    @Test public void testRepeatedWordIfWasExist() {
+        HashTable<String, Integer> test = new HashTable<>();
+        String str = "Once upon a time, there was a brave princess who...";
+        String expected = test.repeatedWord(str);
+        assertEquals(expected, "a");
+    }
 }

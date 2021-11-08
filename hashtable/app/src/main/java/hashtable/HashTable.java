@@ -1,6 +1,7 @@
 package hashtable;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class HashTable<K, V> {
@@ -102,7 +103,22 @@ public class HashTable<K, V> {
         }
     }
 
-  
+    public String repeatedWord(String str){
+        String [] words = str.toLowerCase(Locale.ROOT).split(" ");
+        HashTable<String, Integer> hashTable = new HashTable<>();
+        for (int i = 0; i < words.length; i++) {
+            if(words[i].contains(",")){
+                words[i] = words[i].substring(0, words[i].length()-1);
+            }
+            if(!words[i].equals("")){
+                if (hashTable.get(words[i]) != null){
+                    return words[i];
+                }
+                hashTable.add(words[i],i);
+            }
+        }
+        return "not exist repeated word";
+    }
 
     public V get(K key) {
         int bucketIndex = getBucketIndex(key);
