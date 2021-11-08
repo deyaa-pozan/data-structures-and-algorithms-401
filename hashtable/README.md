@@ -56,3 +56,22 @@ where n is the size of the array of buckets.
   * average time : `O(1)`
   * worst case : `O(n)` "when the all keys is hashed to the same index."
 * for hash: `O(1)`
+
+
+
+# hashmap-repeated-word
+
+Write a function that accepted a string parameter which  finds the first word to occur more than once in a string and return a string.
+
+`repeatedWord(key):`
+
+
+***space: O(N)***
+
+***time:***
+
+* for repeatedWord: `O(n^2)`
+
+## Whiteboard Process
+
+![repeate](repeate.jpg)
