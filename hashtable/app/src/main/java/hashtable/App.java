@@ -7,17 +7,35 @@ public class App {
 
 
     public static void main(String[] args) {
-        HashTable<String, Integer> friends = new HashTable<>();
-        friends.add("person", 300);
-        friends.add("noBody", 400);
-        friends.add("dontKnow", 200);
-        friends.add("else", 100);
+        HashTable<Integer, Integer> friends = new HashTable<>();
+//        friends.add("person", 300);
+//        friends.add("noBody", 400);
+//        friends.add("dontKnow", 200);
+//        friends.add("else", 100);
+//
+//        System.out.println("The size is => " + friends.getSize());
+//        System.out.println("The dontKnow allowance is => " + friends.get("else"));
+//        System.out.println(friends.contains("else"));
+//        System.out.println("The Index  is => " + friends.hash("person"));
+//        System.out.println(friends.repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
+        Tree<Integer> t1 = new Tree<>();
+        Tree<Integer> t2 = new Tree<>();
 
-        System.out.println("The size is => " + friends.getSize());
-        System.out.println("The dontKnow allowance is => " + friends.get("else"));
-        System.out.println(friends.contains("else"));
-        System.out.println("The Index  is => " + friends.hash("person"));
-        System.out.println(friends.repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
+        t1.add(5);
+        t1.add(9);
+        t1.add(3);
+
+        t2.add(9);
+        t2.add(5);
+        t2.add(2);
+
+                System.out.println("find => " + t2.treeIntersection(t1,t2));
+
+
+
+
+
+
 
     }
 }
