@@ -3,6 +3,8 @@
  */
 package hashtable;
 
+import java.util.ArrayList;
+
 public class App {
 
 
@@ -18,20 +20,33 @@ public class App {
 //        System.out.println(friends.contains("else"));
 //        System.out.println("The Index  is => " + friends.hash("person"));
 //        System.out.println(friends.repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
-        Tree<Integer> t1 = new Tree<>();
-        Tree<Integer> t2 = new Tree<>();
+//        Tree<Integer> t1 = new Tree<>();
+//        Tree<Integer> t2 = new Tree<>();
+//
+//        t1.add(5);
+//        t1.add(9);
+//        t1.add(3);
+//
+//        t2.add(9);
+//        t2.add(5);
+//        t2.add(2);
+//
+//                System.out.println("find => " + t2.treeIntersection(t1,t2));
+        HashTable<String, String> t1 = new HashTable<>();
+        HashTable<String, String> t2 = new HashTable<>();
+        t1.add("fond", "enamored");
+        t1.add("wrath", "anger");
+        t1.add("diligent", "employed");
+        t1.add("outfit", "garb");
+        t1.add("guide", "usher");
 
-        t1.add(5);
-        t1.add(9);
-        t1.add(3);
-
-        t2.add(9);
-        t2.add(5);
-        t2.add(2);
-
-                System.out.println("find => " + t2.treeIntersection(t1,t2));
-
-
+        t2.add("fond", "averse");
+        t2.add("wrath", "delight");
+        t2.add("diligent", "idle");
+        t2.add("guide", "follow");
+        t2.add("flow", "jam");
+        ArrayList<ArrayList<String>> list =t1.leftJoin(t1,t2);
+        System.out.println(list);
 
 
 

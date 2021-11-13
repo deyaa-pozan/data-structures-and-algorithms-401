@@ -77,4 +77,24 @@ class AppTest {
         String expected = test.repeatedWord(str);
         assertEquals(expected, "a");
     }
+
+    @Test
+    void testJoinLeftFunction()   {
+        HashTable<String, String> t1 = new HashTable<>();
+        HashTable<String, String> t2 = new HashTable<>();
+        t1.add("fond", "enamored");
+        t1.add("wrath", "anger");
+        t1.add("diligent", "employed");
+        t1.add("outfit", "garb");
+        t1.add("guide", "usher");
+
+        t2.add("fond", "averse");
+        t2.add("wrath", "delight");
+        t2.add("diligent", "idle");
+        t2.add("guide", "follow");
+        t2.add("flow", "jam");
+        String outPut = "[[diligent, employed, idle], [wrath, anger, delight], [fond, enamored, averse], [guide, usher, follow], [outfit, garb, null]]";
+        String expected = t1.leftJoin(t1,t2).toString();
+        assertEquals(outPut,expected);
+    }
 }

@@ -123,3 +123,14 @@ find the common values in two binary trees.
 ## Whiteboard Process
 
 ![treeIntersection](treeIntersection.jpg)
+
+------------------------------------
+# Hashmap LEFT JOIN
+
+# Challenge Summary
+
+Implement a simplified LEFT JOIN for 2 Hashmaps.
+
+## Whiteboard Process
+
+![leftJoin](leftJoin.jpg)
