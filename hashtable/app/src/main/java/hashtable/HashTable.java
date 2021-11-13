@@ -1,5 +1,7 @@
 package hashtable;
 
+import hashtable.LinkedList.Linkedlist;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
@@ -152,6 +154,24 @@ public class HashTable<K, V> {
 
         return false;
     }
+
+    public ArrayList<ArrayList<String>> leftJoin(HashTable<K,V> t1, HashTable<K,V> t2){
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+        for (HashNode<K,V> n:t1.bucketArray){
+            HashNode<K,V> head=n;
+            while (head!=null){
+                ArrayList<String> inner= new ArrayList<>();
+                inner.add((String) head.key) ;
+                inner.add((String) head.value);
+                inner.add((String) t2.get(head.key)) ;
+                list.add(inner);
+                head=head.next;
+            }
+        }
+        return list;
+    }
+
+
 
 
 
