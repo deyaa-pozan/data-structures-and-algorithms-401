@@ -3,12 +3,84 @@
  */
 package graph;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+
+    @Test
+    @DisplayName("Node can be successfully added to the graph")
+    void test1()   {
+        Graph<String> graph = new Graph<>();
+
+        graph.addNode("Fellow 1");
+        graph.addNode("Fellow 2");
+        assertEquals(2, graph.getSize());
     }
+    @Test
+    @DisplayName("An edge can be successfully added to the graph")
+    void test2() throws NodeNotFoundException {
+        Graph<String> graph = new Graph<>();
+
+        graph.addNode("Fellow 1");
+        graph.addNode("Fellow 2");
+        graph.addNode("Fellow 3");
+        graph.addEdge("Fellow 1", "Fellow 2",10);
+
+        assertEquals("[ ( Fellow 2 , 10 ) ]", graph.getNeighbors("Fellow 1").toString());
+    }
+    @Test
+    @DisplayName("A collection of all nodes can be properly retrieved from the graph")
+    void test3() throws NodeNotFoundException {
+        Graph<String> graph = new Graph<>();
+
+        graph.addNode("Fellow 1");
+        graph.addNode("Fellow 2");
+        graph.addNode("Fellow 3");
+        graph.addEdge("Fellow 1", "Fellow 2",10);
+
+        assertEquals("[ value: Fellow 1 ,  Neighbors: [ ( Fellow 2 , 10 ) ] ,  value: Fellow 2 ,  Neighbors: [ ( Fellow 1 , 10 ) ] ,  value: Fellow 3 ,  Neighbors: [] ]", graph.getNodes().toString());
+    }
+    @Test
+    @DisplayName("All appropriate neighbors can be retrieved from the graph")
+    void test4() throws NodeNotFoundException {
+        Graph<String> graph = new Graph<>();
+
+        graph.addNode("Fellow 1");
+        graph.addNode("Fellow 2");
+        graph.addNode("Fellow 3");
+        graph.addEdge("Fellow 1", "Fellow 2",10);
+        graph.addEdge("Fellow 1", "Fellow 3",10);
+
+        assertEquals("[ ( Fellow 2 , 10 ) ,  ( Fellow 3 , 10 ) ]", graph.getNeighbors("Fellow 1").toString());
+    }
+    @Test
+    @DisplayName("Neighbors are returned with the weight between nodes included")
+    void test5() throws NodeNotFoundException {
+        Graph<String> graph = new Graph<>();
+        graph.addNode("Fellow 1");
+        graph.addNode("Fellow 2");
+        graph.addNode("Fellow 3");
+        graph.addEdge("Fellow 1", "Fellow 2",10);
+        assertEquals("[ ( Fellow 2 , 10 ) ]", graph.getNeighbors("Fellow 1").toString());
+    }
+    @Test
+    @DisplayName("The proper size is returned, representing the number of nodes in the graph")
+    void test6()   {
+        Graph<String> graph = new Graph<>();
+        graph.addNode("Fellow 1");
+        graph.addNode("Fellow 2");
+        assertEquals(2, graph.getSize());
+    }
+    @Test
+    @DisplayName("A graph with only one node and edge can be properly returned")
+    void test7() throws NodeNotFoundException {
+        Graph<String> graph = new Graph<>();
+        graph.addNode("Fellow 1");
+        graph.addEdge("Fellow 1", "Fellow 1",10);
+        assertEquals("Node: --{  value: Fellow 1 ,  Neighbors: [ ( Fellow 1 , 10 ) ,  ( Fellow 1 , 10 ) ]  }-- \n", graph.toString());
+    }
+
 }
