@@ -14,7 +14,7 @@ public class AnimalShelter {
     public Animal dequeue(String pref){
         if(!animals.isEmpty()) {
             Node current = animals.getFront();
-            if(isItAnimal(pref , current) ){
+            if(isItAnimal(pref , current)){
                 return animals.dequeue();
             }
             while (current.getNext() != null) {
