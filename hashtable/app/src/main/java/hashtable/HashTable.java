@@ -173,7 +173,24 @@ public class HashTable<K, V> {
 
 
 
+    public boolean uniqueCharacters(String str) {
+        char[] c = new char[str.length()];
+        for (int i = 0; i <str.length(); i++)
+        { char c1 = str.charAt(i);
+            c[i] = c1;
+        }
 
+        HashTable<Character, Character> hashTable = new HashTable<>();
+        for (int i = 0; i < c.length; i++) {
+            if(c[i]!=' ' && c[i]!=','){
+                if (hashTable.get(c[i]) != null){
+                    return false;
+                }
+                hashTable.add(c[i],c[i]);
+            }
+        }
+        return true;
+    }
 
 
     @Override
