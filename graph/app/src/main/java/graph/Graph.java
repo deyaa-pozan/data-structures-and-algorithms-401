@@ -126,4 +126,29 @@ public class Graph <T> {
     }
 
 
+    public String businessTrip(Graph graph, List<String> citiesNames) throws NodeNotFoundException {
+        int cost = 0;
+        if (citiesNames.size() <= 1)
+            return "null";
+
+        int findWeight;
+        for (int i = 0; i < citiesNames.size() - 1; i++) {
+            findWeight = findWeight(graph, (T) citiesNames.get(i), citiesNames.get(i + 1));
+
+            if (findWeight == 0)
+                return "False, $0";
+
+            cost += findWeight;
+        }
+        return "True, $" + cost;
+    }
+
+    private int findWeight(Graph graph, T city1, String city2) throws NodeNotFoundException {
+        for (Neighbor vertex : getNeighbors(city1)) {
+            if (Objects.equals(city2, vertex.getNode().getValue())) {
+                return vertex.getWeight();
+            }
+        }
+        return 0;
+    }
 }
