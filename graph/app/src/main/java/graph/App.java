@@ -3,24 +3,39 @@
  */
 package graph;
 
+import java.util.List;
+
 public class App {
     public static void main(String[] args) {
         Graph<String> graph1 = new Graph<>();
-
-        graph1.addNode("Amman");
-        graph1.addNode("Zarqa");
-        graph1.addNode("Irbid");
-        graph1.addNode("Salt");
+        graph1.addNode("A");
+        graph1.addNode("B");
+        graph1.addNode("C");
+        graph1.addNode("D");
+        graph1.addNode("E");
+        graph1.addNode("F");
+        graph1.addNode("G");
+        graph1.addNode("H");
 
         try {
-            graph1.addEdge("Amman","Zarqa",10);
-            graph1.addEdge("Amman","Irbid",13);
-            System.out.println(graph1.getNeighbors("Amman"));
+            graph1.addEdge("A","B",0);
+            graph1.addEdge("A","D",0);
+            graph1.addEdge("B","C",0);
+            graph1.addEdge("B","D",0);
+
+            graph1.addEdge("C","G",0);
+            graph1.addEdge("D","E",0);
+            graph1.addEdge("D","H",0);
+
+            graph1.addEdge("D","F",0);
+            graph1.addEdge("F","H",0);
+
+            List<String> bft = graph1.BFT("A");
+            System.out.println(bft);
         }
         catch(NodeNotFoundException ex){
             System.out.println(ex.getMessage());
         }
-
         System.out.println(graph1);
         System.out.println(graph1.getSize());
         System.out.println(graph1.getNodes());
