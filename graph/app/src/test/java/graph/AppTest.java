@@ -172,6 +172,57 @@ class AppTest {
         }
     }
 
+    @Test
+    public void testDifferentPaths() throws NodeNotFoundException {
 
+        Graph graph = new Graph();
+        ArrayList<String> path = new ArrayList<>();
+
+        graph.addNode("Pandora");
+        graph.addNode("Arendelle");
+        graph.addNode("Metroville");
+        graph.addNode("Monstroplolis");
+        graph.addNode("Narnia");
+        graph.addNode("Naboo");
+
+        graph.addEdge("Pandora", "Arendelle", 150);
+        graph.addEdge("Pandora", "Metroville", 82);
+
+
+        graph.addEdge("Arendelle", "Metroville", 99);
+        graph.addEdge("Arendelle", "Monstroplolis", 42);
+
+        graph.addEdge("Metroville", "Monstroplolis", 105);
+        graph.addEdge("Metroville", "Narnia", 37);
+        graph.addEdge("Metroville", "Naboo", 26);
+
+        graph.addEdge("Monstroplolis", "Naboo", 73);
+        graph.addEdge("Narnia", "Naboo", 250);
+
+        path.add("Metroville");
+        path.add("Pandora");
+
+        assertEquals("True, $82", graph.businessTrip(graph, path));
+
+        ArrayList<String> path1 = new ArrayList<>();
+        path1.add("Arendelle");
+        path1.add("Monstroplolis");
+        path1.add("Naboo");
+
+        assertEquals("True, $115", graph.businessTrip(graph, path1));
+
+        ArrayList<String> path2 = new ArrayList<>();
+        path2.add("Naboo");
+        path2.add("Pandora");
+
+        assertEquals("False, $0", graph.businessTrip(graph, path2));
+
+        ArrayList<String> path3 = new ArrayList<>();
+        path3.add("Narnia");
+        path3.add("Arendelle");
+        path3.add("Naboo");
+
+        assertEquals("False, $0", graph.businessTrip(graph, path3));
+    }
 
 }
