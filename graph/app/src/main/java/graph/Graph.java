@@ -1,13 +1,10 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graph <T> {
 
-    private List<Node> vertices = new ArrayList<>();
+    private ArrayList<Node> vertices = new ArrayList<>();
     private HashMap<T,Integer> dictionary = new HashMap<>();
     private int size = 0 ;
 
@@ -48,7 +45,7 @@ public class Graph <T> {
         return dictionary.containsKey(value);
     }
 
-    public List<Neighbor> getNeighbors(T value) throws NodeNotFoundException {
+    public ArrayList<Neighbor> getNeighbors(T value) throws NodeNotFoundException {
         if (isNodeExist(value)){
             int index = dictionary.get(value);
             Node currentNode = vertices.get(index);
@@ -59,7 +56,7 @@ public class Graph <T> {
         }
     }
 
-    public List<Node> getNodes() {
+    public ArrayList<Node> getNodes() {
         return vertices;
     }
 
@@ -84,4 +81,49 @@ public class Graph <T> {
     private boolean graphIsEmpty() {
         return this.size ==0;
     }
+
+    public ArrayList<String> BFT(T root) throws NodeNotFoundException {
+        if( nodeNotFound(root) )
+            throw new NodeNotFoundException("Node not found..( "+root.toString()+" )!");
+        Set<T> visited = new HashSet<>();
+        ArrayList<String> output = new ArrayList<>();
+        Queue<Node> queue = new LinkedList<>();
+
+        Node rootNode = getNode(root);
+        queue.add(rootNode);
+        visited.add((T)rootNode.getValue());
+
+        while( ! queue.isEmpty()){
+            Node node = queue.poll();
+            output.add(node.getValue().toString());
+
+            ArrayList<Neighbor> neighbors = node.getNeighbors();
+            Iterator<Neighbor> neighborsItr = neighbors.iterator();
+
+            while(neighborsItr.hasNext()){
+
+                Node neighborNode = neighborsItr.next().getNode();
+                if(visited.contains(neighborNode.getValue())){
+                    continue;
+                }
+                queue.add(neighborNode);
+                visited.add((T)neighborNode.getValue());
+            }
+        }
+        return output;
+    }
+    private Node getNode(T node) throws NodeNotFoundException {
+
+        if( nodeNotFound(node) )
+            throw new NodeNotFoundException("Node not found..( "+node.toString()+" )!");
+
+        int index = dictionary.get(node);
+        return  vertices.get(index);
+    }
+
+    private boolean nodeNotFound(T root) {
+        return  ! dictionary.containsKey(root);
+    }
+
+
 }

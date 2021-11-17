@@ -5,7 +5,7 @@ import java.util.List;
 public class Node <T> {
 
     private T value;
-    private List<Neighbor> neighbors = new ArrayList<>();
+    private ArrayList<Neighbor> neighbors = new ArrayList<>();
 
     public Node(T value) {
         this.value = value;
@@ -15,7 +15,7 @@ public class Node <T> {
         return value;
     }
 
-    public List<Neighbor> getNeighbors() {
+    public ArrayList<Neighbor> getNeighbors() {
         return neighbors;
     }
 
@@ -26,6 +26,10 @@ public class Node <T> {
     public void addNeighbor(Neighbor neighbor){
         if(! neighbors.contains(neighbor))
              neighbors.add(neighbor);
+    }
+
+    public void setNeighbors(ArrayList<Neighbor> neighbors) {
+        this.neighbors = neighbors;
     }
 
     @Override
