@@ -51,5 +51,9 @@ And `E` is the number of Edges in the graph (or part of graph connected to the r
 ## Whiteboard Process
 ![graph](graph.jpg)
 
-
+-------------------------
 ![graph](graph2.jpg)
+
+
+-------------------------
+![graph](graph3.jpg)

@@ -173,7 +173,8 @@ class AppTest {
     }
 
     @Test
-    public void testDifferentPaths() throws NodeNotFoundException {
+    @DisplayName("Test different paths")
+    public void test12() throws NodeNotFoundException {
 
         Graph graph = new Graph();
         ArrayList<String> path = new ArrayList<>();
@@ -223,6 +224,46 @@ class AppTest {
         path3.add("Naboo");
 
         assertEquals("False, $0", graph.businessTrip(graph, path3));
+    }
+
+    @Test
+    @DisplayName("Test depthFirst")
+    public void test13() throws NodeNotFoundException {
+
+        Graph graph3 = new Graph();
+
+        graph3.addNode("A");
+        graph3.addNode("B");
+        graph3.addNode("C");
+        graph3.addNode("D");
+        graph3.addNode("E");
+        graph3.addNode("F");
+        graph3.addNode("G");
+        graph3.addNode("H");
+
+
+        graph3.addEdge("A", "D",10);
+        graph3.addEdge("A", "B",10);
+        graph3.addEdge("B", "D",10);
+        graph3.addEdge("B", "C",10);
+        graph3.addEdge("C", "G",10);
+        graph3.addEdge("D", "F",10);
+        graph3.addEdge("D", "H",10);
+        graph3.addEdge("D", "E",10);
+        graph3.addEdge("F", "H",10);
+
+        assertEquals("[A, B, C, G, D, E, H, F]", graph3.depthFirst("A").toString());
+    }
+
+    @Test
+    @DisplayName("Test depthFirst2")
+    public void test14() throws NodeNotFoundException {
+        Graph graph3 = new Graph();
+        graph3.addNode("A");
+        graph3.addNode("B");
+        graph3.addNode("C");
+        graph3.addEdge("A", "B",10);
+        assertEquals("[A, B]", graph3.depthFirst("A").toString());
     }
 
 }

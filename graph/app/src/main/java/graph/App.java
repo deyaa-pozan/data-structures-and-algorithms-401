@@ -41,37 +41,59 @@ public class App {
 //        System.out.println(graph1.getSize());
 //        System.out.println(graph1.getNodes());
 
-        Graph graph2 = new Graph();
+//        Graph graph2 = new Graph();
+//
+//        graph2.addNode("Pandora");
+//        graph2.addNode("Arendelle");
+//        graph2.addNode("Metroville");
+//        graph2.addNode("Monstropolis");
+//        graph2.addNode("Narnia");
+//        graph2.addNode("Naboo");
+//
+//        graph2.addEdge("Pandora", "Arendelle", 150);
+//        graph2.addEdge("Pandora", "Metroville", 82);
+//        graph2.addEdge("Arendelle", "Metroville",99);
+//        graph2.addEdge("Arendelle", "Monstropolis",42);
+//        graph2.addEdge("Metroville", "Narnia",37);
+//        graph2.addEdge("Metroville", "Naboo",26);
+//        graph2.addEdge("Metroville", "Monstropolis",105);
+//        graph2.addEdge("Monstropolis", "Naboo",73);
+//        graph2.addEdge("Narnia", "Naboo",250);
+//
+//        ArrayList<String> cities = new ArrayList<>();
+//        cities.add("Pandora");
+//        cities.add("Arendelle");
+//        cities.add("Metroville");
+//
+//        List<String> cities1 = new ArrayList<>();
+//        cities1.add("Pandora");
+//        cities1.add("Naboo");
+//        cities1.add("Metroville");
+//
+//
+//        System.out.println("First Trip ---> " + graph2.businessTrip(graph2, cities));
+//        System.out.println("Second Trip ---> " + graph2.businessTrip(graph2, cities1));
 
-        graph2.addNode("Pandora");
-        graph2.addNode("Arendelle");
-        graph2.addNode("Metroville");
-        graph2.addNode("Monstropolis");
-        graph2.addNode("Narnia");
-        graph2.addNode("Naboo");
+        Graph graph3 = new Graph();
+        graph3.addNode("A");
+        graph3.addNode("B");
+        graph3.addNode("C");
+        graph3.addNode("D");
+        graph3.addNode("E");
+        graph3.addNode("F");
+        graph3.addNode("G");
+        graph3.addNode("H");
 
-        graph2.addEdge("Pandora", "Arendelle", 150);
-        graph2.addEdge("Pandora", "Metroville", 82);
-        graph2.addEdge("Arendelle", "Metroville",99);
-        graph2.addEdge("Arendelle", "Monstropolis",42);
-        graph2.addEdge("Metroville", "Narnia",37);
-        graph2.addEdge("Metroville", "Naboo",26);
-        graph2.addEdge("Metroville", "Monstropolis",105);
-        graph2.addEdge("Monstropolis", "Naboo",73);
-        graph2.addEdge("Narnia", "Naboo",250);
+        graph3.addEdge("A", "D",10);
+        graph3.addEdge("A", "B",10);
+        graph3.addEdge("B", "D",10);
+        graph3.addEdge("B", "C",10);
+        graph3.addEdge("C", "G",10);
+        graph3.addEdge("D", "F",10);
+        graph3.addEdge("D", "H",10);
+        graph3.addEdge("D", "E",10);
+        graph3.addEdge("F", "H",10);
 
-        ArrayList<String> cities = new ArrayList<>();
-        cities.add("Pandora");
-        cities.add("Arendelle");
-        cities.add("Metroville");
-
-        List<String> cities1 = new ArrayList<>();
-        cities1.add("Pandora");
-        cities1.add("Naboo");
-        cities1.add("Metroville");
-
-
-        System.out.println("First Trip ---> " + graph2.businessTrip(graph2, cities));
-        System.out.println("Second Trip ---> " + graph2.businessTrip(graph2, cities1));
+        System.out.println("Depth first ---> " + graph3.depthFirst("A"));
     }
 }
