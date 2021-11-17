@@ -151,4 +151,22 @@ public class Graph <T> {
         }
         return 0;
     }
+
+    public Set<String> depthFirst(String root) throws NodeNotFoundException {
+        Set<String> visited = new LinkedHashSet<>();
+        Stack<String> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            String vertex = stack.pop();
+            if (!visited.contains(vertex)) {
+                visited.add(vertex);
+
+                for (Neighbor v : getNeighbors((T) vertex)) {
+                    stack.push((String) v.getNode().getValue());
+                }
+            }
+        }
+        return visited;
+    }
+
 }
